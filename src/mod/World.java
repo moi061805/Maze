@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import view.StringMap;
 
 public class World {
+  //This class create the world of the maze
   private Player _p;
   
   private Minotaur _t;
@@ -26,7 +27,7 @@ public class World {
     this._s = new StringMap(this._m, this._p, this._t);
     update();
   }
-  
+  //This method sets the map that is chosen
   public void setMap() {
     int action = JOptionPane.showConfirmDialog(null, "   Yes = Map 1      No = Map 2      Cancel = Map 3   ", "Chose a Maze", 1);
     if (action == 0) {
@@ -39,7 +40,7 @@ public class World {
       JOP.msg("Bye");
     } 
   }
-  
+  //This method updates the map everytime the player moves
   public void update() {
     JOP.msg("The objective is to get out of the maze without letting the minotaur get you. You can kill the minotaur by finding the sword and killing him.You can chage maps using the 'change' keyword.");
     setMap();
@@ -75,7 +76,7 @@ public class World {
       } 
     } 
   }
-  
+  //This method gets were the player is moving
   private boolean getPlayerMove(String s) {
     if (s.equalsIgnoreCase("W")) {
       if (this._p.getRow() - 1 >= 0 && this._m.getMaze()[this._p.getRow() - 1][this._p.getCol()]) {
@@ -118,7 +119,7 @@ public class World {
     } 
     return false;
   }
-  
+  //This method moves the minotaur
   private void moveMinotaur() {
     int rDist = this._p.getRow() - this._t.getRow();
     int cDist = this._p.getCol() - this._t.getCol();
@@ -133,7 +134,7 @@ public class World {
     if (cDist < 0 && this._m.getMaze()[r][c - 1])
       this._t.setPos(r, c - 1); 
   }
-  
+  //This method displays how many steps you walked
   public boolean death() {
     if (this._t.getRow() == this._p.getRow() && 
       this._t.getCol() == this._p.getCol()) {
@@ -142,7 +143,7 @@ public class World {
     } 
     return false;
   }
-  
+  //This method shows a victory message and shows how many steps you took
   public boolean victory() {
     if (this._p.getRow() == this._m.getExit()[0] && this._p.getCol() == this._m.getExit()[1]) {
       JOP.msg("You walked " + Integer.toString(this._stepCounter) + " steps.");
@@ -150,7 +151,7 @@ public class World {
     } 
     return false;
   }
-  
+  //This method gives the sword to the player
   public boolean giveSword() {
     if (this._p.getRow() == this._m.getSword()[0] && this._p.getCol() == this._m.getSword()[1]) {
       this._p.giveSword();
@@ -158,7 +159,7 @@ public class World {
     } 
     return false;
   }
-  
+  //This method kills the minotaur
   public boolean kill() {
     if (this._p.hasSword() && this._t.getRow() == this._p.getRow() && this._t.getCol() == this._p.getCol()) {
       this._t.setPos(12, 0);
