@@ -1,6 +1,7 @@
 package mod;
 
 public class Minotaur {
+  //This class creates a minotaur with the position of the minotaur.
   private int _row;
   
   private int _col;
