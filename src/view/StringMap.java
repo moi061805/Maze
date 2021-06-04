@@ -5,6 +5,7 @@ import mod.Minotaur;
 import mod.Player;
 
 public class StringMap {
+  //This class displays the map
   private final String _wall = "H";
   
   private final String _path = "O";
@@ -30,7 +31,7 @@ public class StringMap {
     this._plyr = p;
     this._mint = t;
   }
-  
+  //This method generates the map with the specific letters
   public String generateMap() {
     String map = "";
     for (int r = 0; r < (this._maze.getMaze()).length; r++) {
