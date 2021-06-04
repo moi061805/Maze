@@ -1,6 +1,7 @@
 package mod;
 
 public class Maze {
+  //This class creates the mazes with the starting point of everything
   private boolean[][] _curMaze = new boolean[][] { 
       { true, true, true, true, true, true }, { false, true, true, true, true, true, true }, { false, false, true, true, true, true, true, true, true, true }, { false, false, true, true, true, true, true, true }, { false, false, true, true, true, true, true, true }, { true, true, true, true, true, true, true, true, true }, { false, false, true, true, true, true, true }, { false, false, true, true, true, true }, { false, false, true, true, true, true, true, true }, { false, false, false, false, false, false, false, true, true }, 
       { false, false, false, false, false, false, false, true, true }, { 
