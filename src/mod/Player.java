@@ -1,6 +1,7 @@
 package mod;
 
 public class Player {
+  //this class creates a player with the position of the player
   private int _row;
   
   private int _col;
@@ -28,19 +29,19 @@ public class Player {
     this._isAlive = true;
     this._sword = false;
   }
-  
+  //This method checks if the player is alive
   public boolean isAlive() {
     return this._isAlive;
   }
-  
+  //This method kills
   public void kill() {
     this._isAlive = false;
   }
-  
+  //This method checks if the player has the sword
   public boolean hasSword() {
     return this._sword;
   }
-  
+  //This method gives the sword to the player
   public void giveSword() {
     this._sword = true;
   }
